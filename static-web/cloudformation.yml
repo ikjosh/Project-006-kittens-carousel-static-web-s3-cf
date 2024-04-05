@@ -29,7 +29,7 @@ Resources:
     Type: AWS::S3::BucketPolicy
     Properties:
       Bucket: !Ref MyS3Bucket # Required
-      PolicyDocument: JSON # Required
+      PolicyDocument:  # Required
         Version: 2012-10-17
         Statement:
           - Action:
@@ -73,11 +73,10 @@ Resources:
   MyDNSRecord:
     Type: AWS::Route53::RecordSetGroup
     Properties:
-      Comment: 
       HostedZoneId: Z05137422XNV2ULWYDSYO
       RecordSets: 
         - AliasTarget: 
-            DNSName: MyCloudfrontDistribution.DomainName 
+            DNSName: !GetAtt MyCloudfrontDistribution.DomainName 
             HostedZoneId: Z2FDTNDATAQYW2
           Name: !Ref MyS3Bucket
           Type: A
