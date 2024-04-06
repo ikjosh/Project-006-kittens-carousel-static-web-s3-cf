@@ -61,14 +61,16 @@ Resources:
           ViewerProtocolPolicy: allow-all
         DefaultRootObject: index.html
         Enabled: true
-       # HttpVersion: "String"
+        HttpVersion: http2
 
         Origins:
           - CustomOriginConfig: 
               OriginProtocolPolicy: http-only
-            DomainName: kittens.clarusway.us.s3-website.us-east-1.amazonaws.com
+            DomainName: kittens.ikjoshdevopsjourney.click.s3-website.us-east-1.amazonaws.com
             Id: KittensOrigin
-        # ViewerCertificate:
+        ViewerCertificate:
+          AcmCertificateArn: arn:aws:acm:us-east-1:654654388939:certificate/9b0bae89-d898-4b55-b8eb-fbd9f1b51261
+          SslSupportMethod: sni-only
 
   MyDNSRecord:
     Type: AWS::Route53::RecordSetGroup
